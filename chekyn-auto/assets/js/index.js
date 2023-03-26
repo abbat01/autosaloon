@@ -65,6 +65,7 @@ const cars = [
 
 createCard(1)
 createCard(0)
+createCard(2)
 // modal
 
 
@@ -98,6 +99,15 @@ carBtns.forEach((el) => {
 
 function generateModal(numImage) {
     modalOverlay.style.display = 'flex';
+
+    const modalClose = document.createElement('div')
+    modalClose.innerHTML = '&#x2715;'
+    modalClose.classList.add('modal-close')
+    modalClose.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+      deleteCards()
+    })
+    modal.appendChild(modalClose)
     
 
     const modalImage = document.createElement('img')
@@ -148,3 +158,7 @@ function generateModal(numImage) {
     modal.appendChild(modalDesc)
   }
 
+// document.querySelector('.modal-close').addEventListener('click', () => {
+//   modalOverlay.style.display = 'none';
+//       deleteCards()
+// })
